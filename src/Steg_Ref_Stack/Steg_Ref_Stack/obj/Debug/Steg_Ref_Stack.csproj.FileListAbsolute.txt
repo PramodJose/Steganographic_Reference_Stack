@@ -1,0 +1,53 @@
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\bin\Debug\Steg_Ref_Stack.exe.config
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\bin\Debug\Steg_Ref_Stack.exe
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\bin\Debug\Steg_Ref_Stack.pdb
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\bin\Debug\Interop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\bin\Debug\AxInterop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.csproj.AssemblyReference.cache
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Interop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\AxInterop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.csproj.ResolveComReference.cache
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Stegotron.frm_decode.resources
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Stegotron.frm_encode.resources
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Stegotron.frm_main.resources
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\FrontEnd.Validation.resources
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.Properties.Resources.resources
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.csproj.GenerateResource.cache
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.csproj.CoreCompileInputs.cache
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.exe
+E:\`Downloads\steg\Steg_Ref_Stack\WindowsFormsApplication5\obj\Debug\Steg_Ref_Stack.pdb
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Steg_Ref_Stack.exe.config
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Steg_Ref_Stack.exe
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Steg_Ref_Stack.pdb
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Interop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\AxInterop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Interop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\AxInterop.WMPLib.dll
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.ResolveComReference.cache
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Stegotron.frm_decode.resources
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Stegotron.frm_encode.resources
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Stegotron.frm_main.resources
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\FrontEnd.Validation.resources
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.Properties.Resources.resources
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.GenerateResource.cache
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.CoreCompileInputs.cache
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.exe
+E:\`Downloads\steg\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.pdb
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Steg_Ref_Stack.exe.config
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Steg_Ref_Stack.exe
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Steg_Ref_Stack.pdb
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\Interop.WMPLib.dll
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\bin\Debug\AxInterop.WMPLib.dll
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.AssemblyReference.cache
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Interop.WMPLib.dll
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\AxInterop.WMPLib.dll
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.ResolveComReference.cache
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Stegotron.frm_decode.resources
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Stegotron.frm_encode.resources
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Stegotron.frm_main.resources
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\FrontEnd.Validation.resources
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.Properties.Resources.resources
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.GenerateResource.cache
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.csproj.CoreCompileInputs.cache
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.exe
+E:\`Downloads\steg\Steganographic Reference Stack\Steg_Ref_Stack\Steg_Ref_Stack\obj\Debug\Steg_Ref_Stack.pdb
