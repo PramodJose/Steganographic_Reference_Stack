@@ -97,6 +97,21 @@ namespace Steg_Ref_Stack
             string pass = txtPwd.Text;
             if (validate.CheckForm(txtPwd.Text, txtConfirmPwd.Text, dlgCover.FileName, dlgMsg.FileName, txtMsg.Text, chkPwd.Checked) == true)
             {
+                if (comboBoxSalt.SelectedIndex == -1)
+                    MessageBox.Show("Please select a Salt Algorithm", "Error");
+                else
+                    Program.saltID = comboBoxSalt.SelectedIndex;
+
+                if (comboBoxHash.SelectedIndex == -1)
+                    MessageBox.Show("Please select a Hash Algorithm", "Error");
+                else
+                    Program.hashID = comboBoxHash.SelectedIndex;
+
+                if (comboBoxCrypt.SelectedIndex == -1)
+                    MessageBox.Show("Please select an Encryption Algorithm", "Error");
+                else
+                    Program.cryptID = comboBoxCrypt.SelectedIndex;
+
                 Program.image = new Bitmap(picCover.Image);
                 Program.message = txtMsg.Text;
                 string messagepath = string.Empty;

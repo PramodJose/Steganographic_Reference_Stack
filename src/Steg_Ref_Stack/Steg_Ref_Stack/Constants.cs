@@ -28,6 +28,25 @@
         public const byte frm_decode = 3;
     }
 
+    public class SaltID
+    {
+        public const int CSRNG = 0;
+        public const int PRNG = 1;
+    }
+
+    public class HashID
+    {
+        public const int SHA256 = 0;
+        public const int MD5 = 1;
+        public const int SHA384 = 2;
+    }
+
+    public class CryptID
+    {
+        public const int AES = 0;
+        public const int TDES = 1;
+    }
+
     public class ChunkIDs
     {
         public const uint WAVE_RIFF = 1179011410;

@@ -35,7 +35,23 @@ namespace Steg_Ref_Stack
         private unsafe void btnDecode_Click(object sender, EventArgs e)
         {
             Decode dec = new Decode();                      //Creates an object of Decode class.
-            Program.decodecover = dlg_cover.FileName;       
+            Program.decodecover = dlg_cover.FileName;
+
+            if (comboBoxSalt.SelectedIndex == -1)
+                MessageBox.Show("Please select a Salt Algorithm", "Error");
+            else
+                Program.saltID = comboBoxSalt.SelectedIndex;
+
+            if (comboBoxHash.SelectedIndex == -1)
+                MessageBox.Show("Please select a Hash Algorithm", "Error");
+            else
+                Program.hashID = comboBoxHash.SelectedIndex;
+
+            if (comboBoxCrypt.SelectedIndex == -1)
+                MessageBox.Show("Please select an Decryption Algorithm", "Error");
+            else
+                Program.cryptID = comboBoxCrypt.SelectedIndex;
+
             if (validate.isImage)                           //Checks if the Stego medium selected is an Image.
                 Program.decOutput = dec.DecodeImage(dlg_cover.FileName, txtPwd.Text, ref Program.msgPath, ref Program.msgExt);
             else

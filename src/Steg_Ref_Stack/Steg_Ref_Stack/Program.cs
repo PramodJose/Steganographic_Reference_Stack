@@ -17,6 +17,8 @@ namespace Steg_Ref_Stack
         public static string decodecover;
         public static bool encOutput;
         public static bool decOutput;
+        public static int saltID = SaltID.PRNG, hashID = HashID.SHA256, cryptID = CryptID.TDES;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

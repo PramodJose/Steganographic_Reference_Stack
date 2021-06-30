@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Security.Cryptography;
 using Constants;
+using Steg_Ref_Stack;
 
 namespace EnDecode
 {
@@ -25,6 +26,7 @@ namespace EnDecode
         /// <returns>true in case of successful encoding, false in case of unsuccessful encoding.</returns>
         public bool EncodeAudio(string msgPath, string msgExt, string coverPath, string password, string saveFileAs)
         {
+            Program.cryptID = Program.hashID = 0;
             //Make new instance of Metadata and initialise the members of the class with required metadata.
             Metadata metadata = new Metadata();
             metadata.FillData(password, msgPath, msgExt);   //Encrypt the message file and collect salt, hash, etc which are required for encoding.
@@ -155,6 +157,7 @@ namespace EnDecode
         /// <returns>true in case of successful encoding, false in case of unsuccessful encoding.</returns>
         public unsafe bool EncodeImage(string msgPath, string msgExt, string coverPath, string password, string saveFileAs)
         {
+            Program.cryptID = Program.hashID = 0;
             //Make new instance of Metadata and initialise the members of the class with required metadata.
             Metadata metadata = new Metadata();
             metadata.FillData(password, msgPath, msgExt);   //Encrypt the message file and collect salt, hash, etc which are required for encoding.
@@ -369,6 +372,7 @@ namespace EnDecode
             SHA256Managed shaHash = new SHA256Managed();
             byte[] computedHash = shaHash.ComputeHash(passAndSalt);
 
+            
             if (computedHash.SequenceEqual(metadata.hash))
             {
                 //Extract length...
@@ -750,9 +754,18 @@ namespace EnDecode
             password = Encoding.UTF8.GetBytes(passwd);
 
             //Get a salt...
-            RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
-            csprng.GetBytes(salt);
-            csprng.Dispose();
+            if (Program.saltID == SaltID.CSRNG)
+            {
+                RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
+                csprng.GetBytes(salt);
+                csprng.Dispose();
+            }
+            else
+            {
+                RandomNumberGenerator prng = RandomNumberGenerator.Create();
+                prng.GetBytes(salt);
+                prng.Dispose();
+            }
 
             //Concatenate password and salt in a byte array.
             byte[] passAndSalt = new byte[password.Length + salt.Length];
@@ -760,11 +773,29 @@ namespace EnDecode
             Buffer.BlockCopy(salt, 0, passAndSalt, password.Length, salt.Length);
 
             //Calculate hash.
-            SHA256Managed shaHash = new SHA256Managed();
-            hash = shaHash.ComputeHash(passAndSalt);
             byte[] IV = new byte[16];
-            Buffer.BlockCopy(shaHash.ComputeHash(salt), 0, IV, 0, IV.Length);
-            shaHash.Dispose();
+            if (Program.hashID == HashID.SHA256)
+            {
+                SHA256Managed shaHash = new SHA256Managed();
+                hash = shaHash.ComputeHash(passAndSalt);
+                Buffer.BlockCopy(shaHash.ComputeHash(salt), 0, IV, 0, IV.Length);
+                shaHash.Dispose();
+            }
+            else if(Program.hashID == HashID.MD5)
+            {
+                MD5 md5Hash = MD5.Create();
+                hash = md5Hash.ComputeHash(passAndSalt);
+                Buffer.BlockCopy(md5Hash.ComputeHash(salt), 0, IV, 0, IV.Length);
+                md5Hash.Dispose();
+            }
+            else
+            {
+                SHA384Managed sha384Hash = new SHA384Managed();
+                byte[] hashInter = sha384Hash.ComputeHash(passAndSalt);
+                Buffer.BlockCopy(hashInter, 0, hash, 0, hash.Length);
+                Buffer.BlockCopy(hashInter, hash.Length, IV, 0, IV.Length);
+                sha384Hash.Dispose();
+            }
             int len = EnDeCrypt(inputMsgPath, hash, IV);
             
             //Convert extension to a compatible form.
@@ -790,6 +821,64 @@ namespace EnDecode
         /// <param name="encrypt">True if encryption has to be performed, false if decryption has to be performed.</param>
         /// <returns>Length (number of bytes) of the generated encrypted message file.</returns>
         public int EnDeCrypt(string inMsgPath, byte[] key, byte[] IV, bool encrypt= true)
+        {
+            encDataPath = Path.GetTempFileName();
+
+            int blockSize;
+            RijndaelManaged rjndl;
+            TripleDESCryptoServiceProvider tdes;
+
+            FileStream fin = new FileStream(inMsgPath, FileMode.Open);
+            FileStream fout = new FileStream(encDataPath, FileMode.Open);
+            fout.SetLength(0);
+            CryptoStream cStream;
+
+            if (Program.cryptID == CryptID.TDES)
+            {
+                tdes = new TripleDESCryptoServiceProvider();
+                tdes.KeySize = 128;
+                tdes.BlockSize = 64;
+                tdes.Mode = CipherMode.CBC;
+                Buffer.BlockCopy(key, 0, tdes.Key, 0, tdes.KeySize / 8);
+                Buffer.BlockCopy(IV, 0, tdes.IV, 0, tdes.BlockSize / 8);
+                blockSize = tdes.BlockSize / 8;
+
+                if (encrypt)
+                    cStream = new CryptoStream(fout, tdes.CreateEncryptor(), CryptoStreamMode.Write);
+                else
+                    cStream = new CryptoStream(fout, tdes.CreateDecryptor(), CryptoStreamMode.Write);
+            }
+            else;
+            {
+                rjndl = new RijndaelManaged();
+                rjndl.KeySize = 256;
+                rjndl.BlockSize = 128;
+                rjndl.Mode = CipherMode.CBC; //Use Cipher Block Chaining Technique for file encryption.
+                rjndl.Key = key;
+                rjndl.IV = IV;
+                blockSize = rjndl.BlockSize / 8;
+
+                if (encrypt)
+                    cStream = new CryptoStream(fout, rjndl.CreateEncryptor(), CryptoStreamMode.Write);
+                else
+                    cStream = new CryptoStream(fout, rjndl.CreateDecryptor(), CryptoStreamMode.Write);
+            }
+
+            int count = 0;
+            byte[] data = new byte[blockSize];
+
+            while ((count = fin.Read(data, 0, blockSize)) > 0)
+                cStream.Write(data, 0, count);
+
+            fin.Close();
+            cStream.FlushFinalBlock();
+            int len = (int)fout.Length;
+            cStream.Close();
+            fout.Close();
+            return len;
+        }
+
+        /*public int EnDeCrypt(string inMsgPath, byte[] key, byte[] IV, bool encrypt= true)
         {
             encDataPath = Path.GetTempFileName();
             RijndaelManaged rjndl = new RijndaelManaged();
@@ -819,7 +908,7 @@ namespace EnDecode
             encrypted.Close();
             fout.Close();
             return len;
-        }
+        }*/
     }
 
     /// <summary>

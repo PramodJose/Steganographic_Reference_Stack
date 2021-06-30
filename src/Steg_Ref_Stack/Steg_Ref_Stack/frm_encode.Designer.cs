@@ -53,6 +53,12 @@
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.comboBoxCrypt = new System.Windows.Forms.ComboBox();
+            this.comboBoxHash = new System.Windows.Forms.ComboBox();
+            this.comboBoxSalt = new System.Windows.Forms.ComboBox();
+            this.labelCrypt = new System.Windows.Forms.Label();
+            this.labelHash = new System.Windows.Forms.Label();
+            this.labelSalt = new System.Windows.Forms.Label();
             this.grpCover.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEditCover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
@@ -71,7 +77,7 @@
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(823, 661);
+            this.btnBack.Location = new System.Drawing.Point(822, 987);
             this.btnBack.Margin = new System.Windows.Forms.Padding(10);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(198, 46);
@@ -87,7 +93,7 @@
             this.btnEncode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEncode.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEncode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEncode.Location = new System.Drawing.Point(1062, 661);
+            this.btnEncode.Location = new System.Drawing.Point(1061, 987);
             this.btnEncode.Margin = new System.Windows.Forms.Padding(10);
             this.btnEncode.Name = "btnEncode";
             this.btnEncode.Size = new System.Drawing.Size(181, 46);
@@ -319,7 +325,7 @@
             this.TitleBar.Location = new System.Drawing.Point(0, 0);
             this.TitleBar.Margin = new System.Windows.Forms.Padding(0);
             this.TitleBar.Name = "TitleBar";
-            this.TitleBar.Size = new System.Drawing.Size(1320, 46);
+            this.TitleBar.Size = new System.Drawing.Size(1920, 46);
             this.TitleBar.TabIndex = 17;
             // 
             // picIcon
@@ -343,7 +349,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.lblTitle.Location = new System.Drawing.Point(66, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(174, 24);
+            this.lblTitle.Size = new System.Drawing.Size(369, 24);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Steganographic Reference Stack - Encode";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -359,7 +365,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.btnClose.Location = new System.Drawing.Point(1279, 0);
+            this.btnClose.Location = new System.Drawing.Point(1879, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(41, 46);
@@ -369,13 +375,92 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // comboBoxCrypt
+            // 
+            this.comboBoxCrypt.FormattingEnabled = true;
+            this.comboBoxCrypt.Items.AddRange(new object[] {
+            "AES",
+            "Triple DES"});
+            this.comboBoxCrypt.Location = new System.Drawing.Point(269, 826);
+            this.comboBoxCrypt.Name = "comboBoxCrypt";
+            this.comboBoxCrypt.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxCrypt.TabIndex = 29;
+            // 
+            // comboBoxHash
+            // 
+            this.comboBoxHash.FormattingEnabled = true;
+            this.comboBoxHash.Items.AddRange(new object[] {
+            "SHA256",
+            "MD5",
+            "SHA384"});
+            this.comboBoxHash.Location = new System.Drawing.Point(269, 757);
+            this.comboBoxHash.Name = "comboBoxHash";
+            this.comboBoxHash.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxHash.TabIndex = 28;
+            // 
+            // comboBoxSalt
+            // 
+            this.comboBoxSalt.FormattingEnabled = true;
+            this.comboBoxSalt.Items.AddRange(new object[] {
+            "CSPRNG",
+            "PRNG"});
+            this.comboBoxSalt.Location = new System.Drawing.Point(269, 688);
+            this.comboBoxSalt.Name = "comboBoxSalt";
+            this.comboBoxSalt.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxSalt.TabIndex = 27;
+            // 
+            // labelCrypt
+            // 
+            this.labelCrypt.AutoSize = true;
+            this.labelCrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCrypt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelCrypt.Location = new System.Drawing.Point(107, 827);
+            this.labelCrypt.Margin = new System.Windows.Forms.Padding(10);
+            this.labelCrypt.Name = "labelCrypt";
+            this.labelCrypt.Size = new System.Drawing.Size(156, 20);
+            this.labelCrypt.TabIndex = 26;
+            this.labelCrypt.Text = "Decryption Algorithm";
+            this.labelCrypt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelHash
+            // 
+            this.labelHash.AutoSize = true;
+            this.labelHash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHash.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelHash.Location = new System.Drawing.Point(107, 758);
+            this.labelHash.Margin = new System.Windows.Forms.Padding(10);
+            this.labelHash.Name = "labelHash";
+            this.labelHash.Size = new System.Drawing.Size(118, 20);
+            this.labelHash.TabIndex = 25;
+            this.labelHash.Text = "Hash Algorithm";
+            this.labelHash.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelSalt
+            // 
+            this.labelSalt.AutoSize = true;
+            this.labelSalt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelSalt.Location = new System.Drawing.Point(107, 689);
+            this.labelSalt.Margin = new System.Windows.Forms.Padding(10);
+            this.labelSalt.Name = "labelSalt";
+            this.labelSalt.Size = new System.Drawing.Size(108, 20);
+            this.labelSalt.TabIndex = 24;
+            this.labelSalt.Text = "Salt Algorithm";
+            this.labelSalt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frm_encode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1320, 730);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.comboBoxCrypt);
+            this.Controls.Add(this.comboBoxHash);
+            this.Controls.Add(this.comboBoxSalt);
+            this.Controls.Add(this.labelCrypt);
+            this.Controls.Add(this.labelHash);
+            this.Controls.Add(this.labelSalt);
             this.Controls.Add(this.TitleBar);
             this.Controls.Add(this.grpCover);
             this.Controls.Add(this.btnBack);
@@ -402,6 +487,7 @@
             this.TitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -430,5 +516,11 @@
         private System.Windows.Forms.PictureBox picIcon;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ComboBox comboBoxCrypt;
+        private System.Windows.Forms.ComboBox comboBoxHash;
+        private System.Windows.Forms.ComboBox comboBoxSalt;
+        private System.Windows.Forms.Label labelCrypt;
+        private System.Windows.Forms.Label labelHash;
+        private System.Windows.Forms.Label labelSalt;
     }
 }
