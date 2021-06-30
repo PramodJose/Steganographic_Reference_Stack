@@ -1,4 +1,4 @@
-﻿namespace Stegotron
+﻿namespace Steg_Ref_Stack
 {
     partial class frm_encode
     {

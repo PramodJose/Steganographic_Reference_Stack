@@ -4,7 +4,7 @@ using Constants;
 using System.Drawing;
 
 
-namespace Stegotron
+namespace Steg_Ref_Stack
 {
     static class Program
     {

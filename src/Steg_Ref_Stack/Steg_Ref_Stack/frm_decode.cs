@@ -7,7 +7,7 @@ using FrontEnd;
 using EnDecode;
 using Constants;
 
-namespace Stegotron
+namespace Steg_Ref_Stack
 {
     public partial class frm_decode : Form
     {
